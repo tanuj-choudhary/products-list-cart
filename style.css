@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  gap: 20px;
+}
+
+.products-list-container {
+  width: 50%;
+}
+
+.products-list {
+  list-style: none;
+}
+
+.products-cart {
+  list-style: decimal;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.product-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.add-to-cart {
+  padding: 5px 12px;
+  min-width: 120px;
+  cursor: pointer;
+}
