@@ -1,8 +1,6 @@
 import { updateProducts } from "./model/productsList.js";
 import { renderCartList } from "./view/cartList.js";
-import {
-  renderProductsList,
-} from "./view/productsList.js";
+import { renderProductsList } from "./view/productsList.js";
 
 export const state = {
   productsList: { data: null, error: null },
@@ -17,14 +15,17 @@ async function init() {
 }
 
 function setupEventListeners() {
-  document.querySelector(".products-list").addEventListener("click", (e) => {
+  document.querySelector(".products-list").addEventListener("click", addToCart);
+
+  function addToCart(e) {
     state.cartList.push({
       id: e.target.closest(".product-item").children[0].textContent,
       title: e.target.closest(".product-item").children[1].textContent,
     });
 
     renderCartList(state.cartList);
-  });
+  }
+
 }
 
 init();
