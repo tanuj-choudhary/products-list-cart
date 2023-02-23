@@ -1,0 +1,13 @@
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.add-to-cart {
+  padding: 5px 12px;
+  min-width: 120px;
+  cursor: pointer;
+}
