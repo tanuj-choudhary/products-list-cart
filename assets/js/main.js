@@ -3,6 +3,8 @@ import { getProductFromID, updateProducts } from "./model/productsList.js";
 import { renderCartList } from "./view/cartList.js";
 import { renderProductsList } from "./view/productsList.js";
 
+// productList.data : { id1: product1, id2: product2}
+// cartList : { id1: product1, id2: product2}
 export const state = {
   productsList: { data: null, error: null },
   cartList: {},
