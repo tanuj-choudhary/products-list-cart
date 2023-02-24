@@ -3,7 +3,9 @@
  * @param {*} cartList
  */
 export function renderCartList(cartList) {
-  if(cartList.length === 0) {
+  const cartListArray = Object.values(cartList);
+  
+  if (cartListArray.length === 0) {
     renderEmptyCart();
     return;
   }
@@ -13,9 +15,9 @@ export function renderCartList(cartList) {
 
   productsCart.innerHTML = "";
 
-  for (let i = 0; i < cartList.length; i++) {
-    const { id, title } = cartList[i];
-    const cartListItem = createCartItem(id, title);
+  for (let i = 0; i < cartListArray.length; i++) {
+    const { id, title, qty, price } = cartListArray[i];
+    const cartListItem = createCartItem(id, title, qty, price);
     productsCartFragment.append(cartListItem);
   }
 
@@ -36,13 +38,15 @@ function renderEmptyCart() {
  * @param {string} title
  * @returns A cart item with id and title
  */
-function createCartItem(id, title) {
+function createCartItem(id, title, qty, price) {
   const cartListItem = document.createElement("li");
   cartListItem.classList.add("cart-item");
 
   cartListItem.innerHTML = `
           <div class="cart-item-id">${id}</div>
           <div class="cart-item-title">${title}</div>
+          <div class="cart-item-qty">x${qty}</div>
+          <div class="cart-item-price">$${price}</div>
         `;
 
   return cartListItem;

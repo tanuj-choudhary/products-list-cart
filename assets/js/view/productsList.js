@@ -16,8 +16,10 @@ export function renderProductsList(productsList) {
   const productsListElem = document.querySelector(".products-list");
   const productsListFragment = document.createDocumentFragment();
 
-  for (let i = 0; i < productsList.data.length; i++) {
-    const { id, title } = productsList.data[i];
+  const productsListArray = Object.values(productsList.data);
+
+  for (let i = 0; i < productsListArray.length; i++) {
+    const { id, title } = productsListArray[i];
     const productListItem = createProductListItem(id, title);
     productsListFragment.append(productListItem);
   }
@@ -49,6 +51,7 @@ function renderProductsListError() {
  */
  function createProductListItem(id, title) {
   const productsListItem = document.createElement("li");
+  productsListItem.setAttribute('id',id);
   productsListItem.classList.add("product-item");
 
   productsListItem.innerHTML = `
